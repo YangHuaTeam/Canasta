@@ -1,1 +1,21 @@
-inherits: https://raw.githubusercontent.com/CanastaWiki/RecommendedRevisions/1b9be6fe29d32d94fdf83f29b706a374be2b1129/1.43.yaml
+# 基础：自动包含官方推荐的所有扩展和皮肤（如AbuseFilter, VisualEditor等）
+inherits:
+  - https://raw.githubusercontent.com/CanastaWiki/RecommendedRevisions/1b9be6fe29d32d94fdf83f29b706a374be2b1129/1.43.yaml
+
+# 自定义部分：仅添加官方清单中【没有】的扩展和皮肤
+extensions:
+
+  UserPageEditProtection:
+    repository: https://github.com/wikimedia/mediawiki-extensions-UserPageEditProtection
+    branch: REL1_43
+    
+  ShortDescription:
+    repository: https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription
+
+  SimpleBatchUpload:
+    Wikidata ID: Q25816436
+    repository: https://github.com/ProfessionalWiki/SimpleBatchUpload
+
+skins:
+  Citizen:
+    repository: https://github.com/StarCitizenTools/mediawiki-skins-Citizen
