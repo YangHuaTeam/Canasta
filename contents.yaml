@@ -1,20 +1,264 @@
-# 基础：自动包含官方推荐的所有扩展和皮肤（如AbuseFilter, VisualEditor等）
-inherits: https://raw.githubusercontent.com/CanastaWiki/RecommendedRevisions/1b9be6fe29d32d94fdf83f29b706a374be2b1129/1.43.yaml
-
-# 自定义部分：仅添加官方清单中【没有】的扩展和皮肤
+# MediaWiki 1.43 扩展与皮肤配置 - “寻星”网站最终版 (独立清单)
+# 此文件基于官方1.43.yaml，提取了指定扩展，并补充了网站特定配置。
 extensions:
+  # 从官方1.43.yaml清单中提取的扩展配置
+  - AdminLinks:
+      Wikidata ID: Q21676187
+      branch: master
+      commit: 92f1e05e2458368ad7a8477b2d84acfc99c36026 # v. 0.7.1
+  - AJAXPoll:
+      Wikidata ID: Q21676062
+      commit: fbfd07ef43063e806026d5bd3f95493e2b189378
+  - AWS:
+      Wikidata ID: Q21676069
+      repository: https://github.com/edwardspec/mediawiki-aws-s3
+      branch: master
+      commit: f85bb579b57f22175ff0cbca7664ad26cacdbb58 # v. 0.13.1
+      additional steps:
+        - composer update
+  - Cargo:
+      Wikidata ID: Q21676223
+      branch: master
+      commit: 3dc65263537bfaf2ee24f3147926876daf25b86e # v. 3.8.5
+      additional steps:
+        - database update
+  - CategoryTree:
+      Wikidata ID: Q21676245
+      bundled: true
+  - CharInsert:
+      Wikidata ID: Q21676306
+      commit: ee7b17910ece1ebaf6ad53857926d797b0ff374d
+  - Cite:
+      Wikidata ID: Q21676449
+      bundled: true
+  - CiteThisPage:
+      Wikidata ID: Q21676453
+      bundled: true
+  - CodeEditor:
+      Wikidata ID: Q21676530
+      bundled: true
+  - CodeMirror:
+      Wikidata ID: Q21676540
+      commit: da01975ea050fe20ea80ff6728bbe0a7a2090c78
+  - Collection:
+      Wikidata ID: Q134413164
+      commit: f5f15ade19be8d5f07518d335be9a7047b6b7437
+  - CommentStreams:
+      Wikidata ID: Q25662100
+      commit: 23e8579bcbd4e7263836f2105d15fa7ef431f98e
+      additional steps:
+        - database update
+  - ConfirmEdit:
+      Wikidata ID: Q21676645
+      bundled: true
+  - Disambiguator:
+      Wikidata ID: Q21677221
+      commit: 56a4738b35d331fe3d3f985b9e3d1c084ab75ed9
+  - DiscussionTools:
+      Wikidata ID: Q94698747
+      bundled: true
+      additional steps:
+        - database update
+      required extensions:
+        - VisualEditor
+  - DisplayTitle:
+      Wikidata ID: Q27948979
+      commit: 920768a8efb9f316aed1f134fc07aa153d612eb7
+  - Echo:
+      Wikidata ID: Q21676230
+      bundled: true
+      additional steps:
+        - database update
+  - EmbedVideo:
+      Wikidata ID: Q123153544
+      repository: https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo
+      branch: REL1_43
+      commit: 8c7c8994b1ac2466339e53674df9140c4de76c67
+  - ExternalData:
+      Wikidata ID: Q21676576
+      branch: master
+      commit: 4a4d7ff7c313465e6fca58a31a2916712f4d1698 # v. 3.6
+      additional steps:
+        - database update
+  - FlexDiagrams:
+      Wikidata ID: Q125545336
+      branch: master
+      commit: 46de86d309ce8ef228925d2f6f4feb26024ee3cf # v. 0.9
+  - Gadgets:
+      Wikidata ID: Q21676981
+      bundled: true
+  - GlobalNotice:
+      Wikidata ID: Q21677217
+      commit: 0cc66c56ebcfdebc0d407d82ae584a5426523d9f
+  - HeaderTabs:
+      Wikidata ID: Q21676903
+      commit: bcb060829c5d643e746921641ea5dbd5a84f35f4
+  - InlineComments:
+      Wikidata ID: Q123261828
+      branch: master
+      commit: 1e1015bfc8d7737265a9e348f8289a7292c5d1fc # v. 1.0.1
+  - Interwiki:
+      Wikidata ID: Q21677398
+      bundled: true
+  - Linter:
+      Wikidata ID: Q27292553
+      bundled: true
+      additional steps:
+        - database update
+  - LoginNotify:
+      Wikidata ID: Q27907726
+      bundled: true
+  - Maps:
+      Wikidata ID: Q21677553
+      repository: https://github.com/ProfessionalWiki/Maps
+      commit: 958b64d521732cc5ad3530cc94a09884d51bcefc # v. 12.0.0
+      additional steps:
+        - composer update
+  - Math:
+      Wikidata ID: Q21677559
+      bundled: true
+      additional steps:
+        - database update
+  - MediaUploader:
+      Wikidata ID: Q123011801
+      commit: b0f6d0f231891daee3da7fa39045640fa50fa4d2
+      additional steps:
+        - database update
+  - Mermaid:
+      Wikidata ID: Q47005306
+      repository: https://github.com/SemanticMediaWiki/Mermaid
+      commit: fd792683fef3c84a7cdd56f8f474c4da0dd630f2 # v. 3.1.0
+  - MintyDocs:
+      Wikidata ID: Q55501601
+      branch: master
+      commit: 8300e744a12476e42f34e4571b0d6613dc9929c7 # v. 1.4.1
+  - MsUpload:
+      Wikidata ID: Q21677697
+      commit: 039b6aece443d6d030e187c112ab2520a65915b2
+  - MultimediaViewer:
+      Wikidata ID: Q21677703
+      bundled: true
+  - OpenGraphMeta:
+      Wikidata ID: Q21677897
+      commit: cb990fcea3b7827f02bcc328e367a7b2387a32a3
+  - PageForms:
+      Wikidata ID: Q21678466
+      branch: master
+      commit: 8324bdaef560ee38e64a67a404082d3893c36ead # v. 6.0.3
+  - PageImages:
+      Wikidata ID: Q21677945
+      bundled: true
+  - PageSchemas:
+      Wikidata ID: Q21677969
+      branch: master
+      commit: 9fe81a9904fa51adcd50c85c3ddb214ae63ce9dc # v. 1.0
+  - ParserFunctions:
+      Wikidata ID: Q21677990
+      bundled: true
+  - PdfHandler:
+      Wikidata ID: Q21678009
+      bundled: true
+  - Poem:
+      Wikidata ID: Q21678065
+      bundled: true
+  - Popups:
+      Wikidata ID: Q21678087
+      commit: 7d5a9c8a62e9f0152c6c73b6d286c65bb526a291
+  - RelatedArticles:
+      Wikidata ID: Q21678282
+      commit: f5de0bc44637825149ea940d755f7b419f62be32
+  - ReplaceText:
+      Wikidata ID: Q21678303
+      bundled: true
+  - RevisionSlider:
+      Wikidata ID: Q24036451
+      commit: ae8986e4e67a17a8def5168645ee9afa6e6890df
+  - RottenLinks:
+      Wikidata ID: Q59088472
+      repository: https://github.com/miraheze/RottenLinks
+      commit: a2019146ef7fad359ac0503bb885f651d90272cb # v. 2.1.0
+      additional steps:
+        - database update
+  - RSS:
+      Wikidata ID: Q21678196
+      commit: d73982e27872a74e2fb6ba40189c96e4beada1c4
+  - Scribunto:
+      Wikidata ID: Q66562448
+      bundled: true
+  - SimpleChanges:
+      Wikidata ID: Q21678599
+      commit: 024aca4c80d2a6b697f3d85e99de8e198b126999
+  - TemplateData:
+      Wikidata ID: Q59283329
+      bundled: true
+  - TemplateSandbox:
+      Wikidata ID: Q21678839
+      commit: db217336a3e2c455c5e24303b2e793623b80a055
+  - TemplateStyles:
+      Wikidata ID: Q25916623
+      commit: 31a4bd259a921e19b4857befa700e7fc0998b6d2
+      additional steps:
+        - composer update
+  - TemplateStylesExtender:
+      Wikidata ID: Q124315076
+      repository: https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender
+      commit: 97a375a037d3cd5a5ead000290883925183f9bb3 # v 2.0.0
+      required extensions:
+        - TemplateStyles
+  - TemplateWizard:
+      Wikidata ID: Q50368282
+      commit: f30e613579b90ff1b166ca08903037415f45471e
+  - TextExtracts:
+      Wikidata ID: Q21678844
+      bundled: true
+  - Thanks:
+      Wikidata ID: Q21678842
+      bundled: true
+  - TimedMediaHandler:
+      Wikidata ID: Q21678857
+      commit: b223fe9d63409696b54511777b1e3619b1a7673b
+      additional steps:
+        - composer update
+        - database update
+  - TitleIcon:
+      Wikidata ID: Q21678880
+      commit: 6e0b6a3ddba40c468d904d8587945092ad3f8030
+  - TwoColConflict:
+      Wikidata ID: Q26991353
+      commit: 377a8f2fd7b87a89354dc08e373d4e2b6d476211
+  - Variables:
+      Wikidata ID: Q21679056
+      commit: 81115fae09d0a219078d2a2511de83474fd2eb8f
+  - VEForAll:
+      Wikidata ID: Q51067113
+      branch: master
+      commit: 33b5fa746af51e9c6c770950a197b1c17f5ee253 # v. 0.6
+      required extensions:
+        - VisualEditor
+  - VisualEditor:
+      Wikidata ID: Q21679100
+      bundled: true
+  - WikiEditor:
+      Wikidata ID: Q21679226
+      bundled: true
+  # === 以下是网站特定的自定义扩展 ===
+  - SimpleBatchUpload: # 注意：此扩展已存在于官方清单，拥有完整配置
+      Wikidata ID: Q25816436
+      repository: https://github.com/ProfessionalWiki/SimpleBatchUpload
+      commit: 1e53b5b50e7fbc6c96c749bfdf3b807f62836c30 # v. 2.0.1
 
-  UserPageEditProtection:
-    repository: https://github.com/wikimedia/mediawiki-extensions-UserPageEditProtection
-    branch: REL1_43
-    
-  ShortDescription:
-    repository: https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription
+  - UserPageEditProtection:
+      repository: https://github.com/wikimedia/mediawiki-extensions-UserPageEditProtection
+      branch: REL1_43
+      # 注意：请在此处补充具体的 commit 哈希值以锁定版本，例如：
+      # commit: abc123def456...
+  - ShortDescription:
+      repository: https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription
+      # 注意：请在此处补充具体的 branch (如 REL1_43) 和 commit 哈希值，例如：
+      # branch: REL1_43
+      # commit: fed456abc123...
 
-  SimpleBatchUpload:
-    Wikidata ID: Q25816436
-    repository: https://github.com/ProfessionalWiki/SimpleBatchUpload
-
+# 网站特定的自定义皮肤
 skins:
-  Citizen:
-    repository: https://github.com/StarCitizenTools/mediawiki-skins-Citizen
+  - Citizen:
+      repository: https://github.com/StarCitizenTools/mediawiki-skins-Citizen
