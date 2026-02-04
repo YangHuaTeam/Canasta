@@ -12,7 +12,9 @@ RUN php /tmp/extensions-skins.php "/tmp/contents.yaml"
 # Default values
 ENV MW_MAINTENANCE_CIRRUSSEARCH_UPDATECONFIG=2 \
 	MW_MAINTENANCE_CIRRUSSEARCH_FORCEINDEX=2
-
+ENV PHP_UPLOAD_MAX_FILESIZE=512M \
+	PHP_POST_MAX_SIZE=512M
+	
 # Dirty hack for Semantic MediaWiki
 #RUN set -x; \
 #	sed -i "s/#wfLoadExtension('SemanticMediaWiki');/#enableSemantics('localhost');/g" $MW_ORIGIN_FILES/installedExtensions.txt
