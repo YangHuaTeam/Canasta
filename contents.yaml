@@ -124,10 +124,10 @@ extensions:
       commit: b0f6d0f231891daee3da7fa39045640fa50fa4d2
       additional steps:
         - database update
-  - Mermaid:
-      Wikidata ID: Q47005306
-      repository: https://github.com/SemanticMediaWiki/Mermaid
-      commit: fd792683fef3c84a7cdd56f8f474c4da0dd630f2 # v. 3.1.0
+#   - Mermaid:
+#       Wikidata ID: Q47005306
+#       repository: https://github.com/SemanticMediaWiki/Mermaid
+#       commit: fd792683fef3c84a7cdd56f8f474c4da0dd630f2 # v. 3.1.0
   - MintyDocs:
       Wikidata ID: Q55501601
       branch: master
@@ -138,9 +138,6 @@ extensions:
   - MultimediaViewer:
       Wikidata ID: Q21677703
       bundled: true
-  - OpenGraphMeta:
-      Wikidata ID: Q21677897
-      commit: cb990fcea3b7827f02bcc328e367a7b2387a32a3
   - PageForms:
       Wikidata ID: Q21678466
       branch: master
@@ -241,8 +238,27 @@ extensions:
   - WikiEditor:
       Wikidata ID: Q21679226
       bundled: true
+  - SyntaxHighlight:
+    Wikidata ID: Q21678766
+    bundled: true
+  - SecureLinkFixer:
+    Wikidata ID: Q55839926
+    bundled: true
+  - ImageMap:
+    Wikidata ID: Q21677197
+    bundled: true
+  - InputBox:
+    Wikidata ID: Q134413220
+    bundled: true
+  - Nuke:
+    Wikidata ID: Q134413238
+    bundled: true
+
   # === 以下是网站特定的自定义扩展 ===
-  - SimpleBatchUpload: # 注意：此扩展已存在于官方清单，拥有完整配置
+  - WikiSEO:
+    Wikidata ID: Q21679286
+    commit: 86611359bfc639beb1b567d7df0edf25a0441aa0
+  - SimpleBatchUpload:
       Wikidata ID: Q25816436
       repository: https://github.com/ProfessionalWiki/SimpleBatchUpload
       commit: 1e53b5b50e7fbc6c96c749bfdf3b807f62836c30 # v. 2.0.1

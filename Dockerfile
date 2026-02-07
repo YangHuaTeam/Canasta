@@ -9,6 +9,8 @@ COPY patches/* /tmp/
 COPY contents.yaml /tmp/
 RUN php /tmp/extensions-skins.php "/tmp/contents.yaml"
 
+COPY _sources/images/seekstar-128.png /var/www/mediawiki/w/resources/assets/
+
 # Default values
 ENV MW_MAINTENANCE_CIRRUSSEARCH_UPDATECONFIG=2 \
 	MW_MAINTENANCE_CIRRUSSEARCH_FORCEINDEX=2
